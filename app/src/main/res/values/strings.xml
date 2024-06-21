@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ThirdWeekTask</string>
+    <string name="tv_1">아이디</string>
+    <string name="tv_2">비밀번호</string>
+    <string name="et_2_hint">비밀번호를 입력하세요.</string>
+    <string name="et_1_hint">아이디를 입력하세요.</string>
+    <string name="btn_1_text">로그인</string>
+    <string name="btn_2_text">회원가입</string>
+</resources>
