@@ -6,4 +6,8 @@
     <string name="et_1_hint">아이디를 입력하세요.</string>
     <string name="btn_1_text">로그인</string>
     <string name="btn_2_text">회원가입</string>
+    <string name="home_id">아이디 :</string>
+    <string name="idididid">아이디</string>
+    <string name="end">종료</string>
+    <string name="id">아이디</string>
 </resources>

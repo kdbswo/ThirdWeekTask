@@ -31,6 +31,10 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, HomeActivity::class.java)
+                val idData = editTextId.text.toString()
+                intent.putExtra("id", idData)
+                startActivity(intent)
             }
         }
 
