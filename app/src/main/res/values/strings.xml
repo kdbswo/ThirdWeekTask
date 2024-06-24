@@ -22,4 +22,5 @@
     <string name="main_age">나이 : 29</string>
     <string name="main_mbti">MBTI : INTP</string>
     <string name="main_image_description">my image</string>
+    <string name="login_image">login image</string>
 </resources>
