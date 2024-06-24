@@ -8,7 +8,7 @@
     tools:context=".HomeActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/img_ball"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="80dp"
@@ -31,7 +31,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/img_ball" />
 
     <TextView
         android:id="@+id/tv_homeId"
