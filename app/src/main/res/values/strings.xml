@@ -18,4 +18,8 @@
     <string name="sign_up_password_hint">비밀번호를 입력하세요.</string>
     <string name="sign_up_button">회원가입</string>
     <string name="imageview_description">userImage</string>
+    <string name="main_name">이름 : 김윤재</string>
+    <string name="main_age">나이 : 29</string>
+    <string name="main_mbti">MBTI : INTP</string>
+    <string name="main_image_description">my image</string>
 </resources>
