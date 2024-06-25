@@ -1,5 +1,6 @@
 package com.loci.thirdweektask
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -30,6 +31,10 @@ class SignUpActivity : AppCompatActivity() {
             if (editTextName.text.isEmpty() || editTextId.text.isEmpty() || editTextPassword.text.isEmpty()) {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             } else {
+                val intent = Intent(this,SignInActivity::class.java)
+                intent.putExtra("id", editTextId.text.toString())
+                intent.putExtra("password", editTextPassword.text.toString())
+                setResult(RESULT_OK, intent)
                 finish()
             }
 

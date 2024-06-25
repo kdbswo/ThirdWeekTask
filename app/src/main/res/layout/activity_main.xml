@@ -67,6 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:autofillHints="password"
         android:hint="@string/et_2_hint"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"

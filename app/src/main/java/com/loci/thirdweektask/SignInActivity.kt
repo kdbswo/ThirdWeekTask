@@ -1,16 +1,23 @@
 package com.loci.thirdweektask
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class SignInActivity : AppCompatActivity() {
+
+    private lateinit var resultLauncher: ActivityResultLauncher<Intent>
+    private lateinit var editTextId: EditText
+    private lateinit var editTextPassword: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,8 +28,8 @@ class SignInActivity : AppCompatActivity() {
             insets
         }
 
-        val editTextId = findViewById<EditText>(R.id.et_1)
-        val editTextPassword = findViewById<EditText>(R.id.et_2)
+        editTextId = findViewById(R.id.et_1)
+        editTextPassword = findViewById(R.id.et_2)
         val loginBtn = findViewById<Button>(R.id.btn_1)
         val signUpBtn = findViewById<Button>(R.id.btn_2)
 
@@ -38,11 +45,26 @@ class SignInActivity : AppCompatActivity() {
             }
         }
 
+        setResultSignUp()
+
         signUpBtn.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+            resultLauncher.launch(intent)
         }
 
-
     }
+
+    private fun setResultSignUp() {
+        resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val id = result.data?.getStringExtra("id") ?: ""
+                    val password = result.data?.getStringExtra("password") ?: ""
+                    editTextId.setText(id)
+                    editTextPassword.setText(password)
+                }
+
+            }
+    }
+
 }
