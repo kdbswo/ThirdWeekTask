@@ -23,6 +23,6 @@
     <string name="main_mbti">MBTI : INTP</string>
     <string name="main_image_description">my image</string>
     <string name="login_image">login image</string>
-    <string name="ud83c_udf00">🌀</string>
-    <string name="btn_text">종료</string>
+    <string name="end_button_text">종료</string>
+    <string name="end_button_icon">Button Icon</string>
 </resources>
