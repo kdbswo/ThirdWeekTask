@@ -2,13 +2,11 @@ package com.loci.thirdweektask
 
 import android.graphics.Color
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet.Layout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlin.random.Random
@@ -26,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
 
         val idData = intent.getStringExtra("id")
         val editTextId = findViewById<TextView>(R.id.tv_homeId)
-        val buttonEnd = findViewById<Button>(R.id.btn_end)
+        val buttonEnd = findViewById<ConstraintLayout>(R.id.layout_btn_end)
         val imageViewBall = findViewById<ImageView>(R.id.img_ball)
         val mainPage = findViewById<ConstraintLayout>(R.id.main_page)
 
