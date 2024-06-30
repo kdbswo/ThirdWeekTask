@@ -18,10 +18,12 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
     private lateinit var editTextId: EditText
     private lateinit var editTextPassword: EditText
+    private lateinit var userData: User
+    var initial = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_sign_in)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -33,14 +35,24 @@ class SignInActivity : AppCompatActivity() {
         val loginBtn = findViewById<Button>(R.id.btn_1)
         val signUpBtn = findViewById<Button>(R.id.btn_2)
 
+
         loginBtn.setOnClickListener {
             if (editTextId.text.isEmpty() || editTextPassword.text.isEmpty()) {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+
                 val intent = Intent(this, HomeActivity::class.java)
-                val idData = editTextId.text.toString()
-                intent.putExtra("id", idData)
+                if (initial) {
+                    userData.name = editTextId.text.toString()
+                    userData.password = editTextPassword.text.toString()
+                    userData.username = userData.username
+                } else {
+                    userData =
+                        User(editTextId.text.toString(), "김윤재", editTextPassword.text.toString())
+                }
+
+                intent.putExtra("data", userData)
                 startActivity(intent)
             }
         }
@@ -58,10 +70,10 @@ class SignInActivity : AppCompatActivity() {
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
-                    val id = result.data?.getStringExtra("id") ?: ""
-                    val password = result.data?.getStringExtra("password") ?: ""
-                    editTextId.setText(id)
-                    editTextPassword.setText(password)
+                    userData = result.data?.getParcelableExtra("data")!!
+                    editTextId.setText(userData.name)
+                    editTextPassword.setText(userData.password)
+                    initial = true
                 }
 
             }

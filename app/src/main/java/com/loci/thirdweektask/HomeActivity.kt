@@ -22,8 +22,9 @@ class HomeActivity : AppCompatActivity() {
             insets
         }
 
-        val idData = intent.getStringExtra("id")
-        val editTextId = findViewById<TextView>(R.id.tv_homeId)
+        val userData : User = intent.getParcelableExtra("data")!!
+        val textViewId = findViewById<TextView>(R.id.tv_homeId)
+        val textViewUsername = findViewById<TextView>(R.id.tv_username)
         val buttonEnd = findViewById<ConstraintLayout>(R.id.btn_main_end)
         val imageViewBall = findViewById<ImageView>(R.id.img_ball)
         val mainPage = findViewById<ConstraintLayout>(R.id.main_page)
@@ -56,7 +57,8 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-        editTextId.setText(idData)
+        textViewId.setText(userData.name)
+        textViewUsername.text = String.format("이름: %s", userData.username)
 
         buttonEnd.setOnClickListener {
             finish()
