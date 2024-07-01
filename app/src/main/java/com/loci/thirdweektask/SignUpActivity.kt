@@ -28,8 +28,8 @@ class SignUpActivity : AppCompatActivity() {
 
         finishButton.setOnClickListener {
 
-            if (editTextName.text.isEmpty() || editTextId.text.isEmpty() || editTextPassword.text.isEmpty()) {
-                Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
+            if (editTextName.text.toString().trim().isEmpty() || editTextId.text.toString().trim().isEmpty() || editTextPassword.text.toString().trim().isEmpty()) {
+                Toast.makeText(this, getString(R.string.login_button_err_toast), Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this,SignInActivity::class.java)
                 val data = User(editTextName.text.toString(),editTextId.text.toString(),editTextPassword.text.toString())

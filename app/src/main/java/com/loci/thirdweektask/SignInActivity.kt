@@ -37,8 +37,8 @@ class SignInActivity : AppCompatActivity() {
 
 
         loginBtn.setOnClickListener {
-            if (editTextId.text.isEmpty() || editTextPassword.text.isEmpty()) {
-                Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
+            if (editTextId.text.toString().trim().isEmpty() || editTextPassword.text.toString().trim().isEmpty()) {
+                Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
 
