@@ -69,7 +69,7 @@ class SignInActivity : AppCompatActivity() {
     private fun setResultSignUp() {
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == Activity.RESULT_OK) {
+                if (result.resultCode == RESULT_OK) {
                     userData = result.data?.getParcelableExtra("data")!!
                     editTextId.setText(userData.name)
                     editTextPassword.setText(userData.password)
